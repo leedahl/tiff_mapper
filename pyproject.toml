@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools-git-versioning"]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "tiff_mapper"
+dependencies = [
+    "geoparquet-library",
+    'ray[all]'
+]
+requires-python = ">=3.12"
+authors = [
+    {name = "Michael Leedahl", email = "geoparquet-develop@leedahl.com"}
+]
+maintainers = [
+    {name = "Michael Leedahl", email = "geoparquet-develop@leedahl.com"}
+]
+description = "A library for mapping TIFF tiles into a GeoParquet dataset."
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["geoparquet", "parquet", "python"]
+
+[project.scripts]
+tile_mapper = "tile_mapper.api:cli"
+
+[tool.setuptools-git-versioning]
+enabled = true
+template = "{tag}.{ccount}"
+dev_template = "{tag}.{ccount}"
+dirty_template = "{tag}.{ccount}"
