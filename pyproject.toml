@@ -7,7 +7,7 @@ dynamic = ["version"]
 name = "tiff_mapper"
 dependencies = [
     "geoparquet-library",
-    'ray[all]'
+    'ray'
 ]
 requires-python = ">=3.12"
 authors = [
