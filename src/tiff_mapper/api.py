@@ -1,5 +1,7 @@
 from io import BytesIO
 from math import ceil
+from typing import Optional
+
 import ray
 import click
 from geoparquet.factory import GeoParquet
@@ -18,12 +20,17 @@ def cli():
 @click.command()
 @click.argument('input-path', type=click.Path(exists=True))
 @click.argument('output-path', type=click.Path())
-def mapper(input_path: str, output_path: str):
+@click.option('-ra', '--ray-address', required=False, default=None, type=str)
+def mapper(input_path: str, output_path: str, ray_address: Optional[str]) -> None:
     if not path.isdir(input_path):
         raise RuntimeError('The input path needs to be a directory that contains TIFF files to map.')
 
     if not ray.is_initialized():
-        ray.init()
+        if ray_address is not None:
+            ray.init(address=ray_address)
+
+        else:
+            ray.init()
 
     base_path = path.split(output_path)[0]
     id_path = f'{base_path}/id.parquet'
