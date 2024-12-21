@@ -11,4 +11,4 @@ RUN dnf install -y python3.12 python3.12-pip && \
     cd $HOME && \
     rm -rf $HOME/src
 
-ENTRYPOINT ["python3.12", "-m", "tiff_mapper.api"]
+ENTRYPOINT ["tiff_mapper", "mapper"]
