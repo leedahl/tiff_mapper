@@ -22,7 +22,7 @@ license = {file = "LICENSE"}
 keywords = ["geoparquet", "parquet", "python"]
 
 [project.scripts]
-tile_mapper = "tiff_mapper.api:cli"
+tiff_mapper = "tiff_mapper.api:cli"
 
 [tool.setuptools-git-versioning]
 enabled = true
