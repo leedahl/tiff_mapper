@@ -27,7 +27,7 @@ def mapper(input_path: str, output_path: str, ray_address: Optional[str]) -> Non
 
     if not ray.is_initialized():
         if ray_address is not None:
-            ray.init(address=ray_address)
+            ray.init(f'ray://{ray_address}')
 
         else:
             ray.init()
