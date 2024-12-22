@@ -21,7 +21,7 @@ def cli():
 @click.command()
 @click.argument('input-path', type=click.Path(exists=True))
 @click.argument('output-path', type=click.Path())
-@click.option('-ra', '--ray-address', required=False, default=None, type=str)
+@click.option('-ra', '--ray-address', envvar='RAY_ADDRESS', required=False, default=None, type=str)
 def mapper(input_path: str, output_path: str, ray_address: Optional[str]) -> None:
     if not path.isdir(input_path):
         raise RuntimeError('The input path needs to be a directory that contains TIFF files to map.')
