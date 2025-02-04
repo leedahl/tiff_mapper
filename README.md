@@ -1,2 +1,2 @@
-# GeoZarr Library
-A python open source library for reading/writing and processing GeoZarr files.
+# TiffMapper Application
+A python open source application for creating a GoeParquet dataset from a set of GeoTIFF files.
